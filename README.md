@@ -7,6 +7,7 @@ A simple Python (Streamlit) application demonstrating **temporal database concep
 - Python 3.10+
 - Streamlit
 - pyodbc
+- pandas
 - SQL Server 2016 or later
 
 ## 🚀 How to Run

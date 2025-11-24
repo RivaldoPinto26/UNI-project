@@ -8,7 +8,7 @@ import pyodbc
 def get_connection():
     conn = pyodbc.connect(
         'DRIVER={SQL Server};'
-        'SERVER=localhost;'          # Altera para o seu server
+        'SERVER=localhost;'          # Altera para o seu server/servidor
         'DATABASE=TemporalDB;'       # Altera para o seu DB
         'Trusted_Connection=yes;'
     )
@@ -72,5 +72,7 @@ else:
 if df.empty:
     st.warning("Nenhum dado encontrado para esta consulta.")
 else:
+    df['SysStartTime'] = df['SysStartTime'].astype(str).str[:19]
+    df['SysEndTime']   = df['SysEndTime'].astype(str).str[:19]
     st.dataframe(df, use_container_width=True)
     st.success(f"{len(df)} registos encontrados ✅")
